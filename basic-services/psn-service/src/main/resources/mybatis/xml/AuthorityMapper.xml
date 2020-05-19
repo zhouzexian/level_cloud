@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.joey.cloud.psn.mapper.AuthorityMapper">
+
+
+    <select id="findAuthorityKeyListByRoleIdList" resultType="java.lang.String">
+        SELECT t1.authorityKey
+        from authority t1,rel_role_authority t2
+        where t1.authorityId=t2.authorityId
+        and t2.roleId in
+        <foreach collection="params.roleIdList"  item="roleId" index="index" open="(" close=")"  separator=",">
+            #{roleId}
+        </foreach>
+    </select>
+</mapper>
