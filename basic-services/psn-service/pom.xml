@@ -12,6 +12,7 @@
     <description>人员信息服务</description>
 
     <dependencies>
+
         <!--    连接数据库    -->
         <dependency>
             <groupId>com.baomidou</groupId>

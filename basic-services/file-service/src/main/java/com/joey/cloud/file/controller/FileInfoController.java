@@ -72,8 +72,9 @@ public class FileInfoController {
         try {
             FileInfo fileInfo = fileInfoServiceImpl.getById(fileId);
             if(fileInfo!=null){
-                //String url= DirUtil.getRandomDir(fileInfo.getFileId())+fileInfo.getFileId()+fileInfo.getExtension();
                 request.getRequestDispatcher(fileInfo.getFilePath()).forward(request, response);
+            }else {
+                ResponseUtil.handle(response, ResponseVo.error());
             }
         }catch (Exception e){
             log.error("下载文件出错,fileId="+fileId,e);

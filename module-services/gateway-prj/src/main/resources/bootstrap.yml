@@ -4,6 +4,7 @@ joey:
   name: gateway
   #服务配置中心地址
   config-url: 127.0.0.1:8848
+  sentinel-url: 127.0.0.1:8080
   swagger:
     enabled: true
 #slf4j日志默认级别
@@ -28,6 +29,10 @@ spring:
       config:
         server-addr: ${joey.config-url}
         file-extension: yaml
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: ${joey.sentinel-url}
   profiles:
     active: dev
   http:
