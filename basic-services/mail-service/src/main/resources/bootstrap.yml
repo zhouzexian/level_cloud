@@ -1,13 +1,8 @@
 #自定义属性
 joey:
-  port: 8821
-  name: uaa
-  db-url: jdbc:mysql://127.0.0.1:3306/uaa_db
-  db-name: root
-  db-pwd: 123456
+  port: 8841
+  name: mail
   config-url: 127.0.0.1:8848
-  tokenTimeOut: 30
-  zipkin-url: http://127.0.0.1:9411
   swagger:
     enabled: true
 #slf4j日志默认级别
@@ -39,16 +34,20 @@ spring:
       charset: UTF-8
       force: true
       enabled: true
-  redis:
-    host: 127.0.0.1
-    port: 6379
-  datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: ${joey.db-url}?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    username: ${joey.db-name}
-    password: ${joey.db-pwd}
-  zipkin:
-    base-url: ${joey.zipkin-url}
+  mail:
+    host: smtp.163.com
+    #host: smtp.qq.com
+    #host: smtp.gmail.com
+    username: xxxx@163.com
+    password: xxxx
+    protocol: smtp
+    default-encoding: UTF-8
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      mail.smtp.starttls.required: true
+      mail.smtp.socketFactory.port: 465
+      mail.smtp.socketFactory.class: javax.net.ssl.SSLSocketFactory
+      mail.smtp.socketFactory.fallback: false
 
 

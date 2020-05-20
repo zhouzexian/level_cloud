@@ -8,6 +8,7 @@ public class BaseConstant {
     public static final String SPITS_STR1="_";
     public static final String SPITS_STR2="/";
     public static final String SPITS_STR3=",";
+    public static final String SPITS_STR4=".";
 
     public static final String STR_EMPTY="";
 

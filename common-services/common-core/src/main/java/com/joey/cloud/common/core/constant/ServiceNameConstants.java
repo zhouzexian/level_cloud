@@ -7,4 +7,5 @@ package com.joey.cloud.common.core.constant;
 public class ServiceNameConstants {
     public static final String uaa="uaa";
     public static final String psn="psn";
+    public static final String cache="cache";
 }

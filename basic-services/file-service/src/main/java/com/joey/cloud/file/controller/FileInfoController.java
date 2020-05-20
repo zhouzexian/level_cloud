@@ -86,9 +86,9 @@ public class FileInfoController {
     @PostMapping("/upload")
     @ResponseBody
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "relationType",value = "关联类型1=主题2=题目3=选项4=主题类型5=测评结果6=用户反馈7=测试须知8=用户9=广告",dataType = "int",paramType = "query"),
-            @ApiImplicitParam(name = "relationKey",value = "业务关联id",dataType = "string",paramType = "query"),
-            @ApiImplicitParam(name = "files",value = "文件",dataType = "__file",paramType = "form",required = true)
+            @ApiImplicitParam(name = "files",value = "文件",dataType = "__file",paramType = "form",required = true),
+            @ApiImplicitParam(name = "relationType",value = "关联类型1=",dataType = "int",paramType = "query"),
+            @ApiImplicitParam(name = "relationKey",value = "业务关联id",dataType = "string",paramType = "query")
     })
     public ResponseVo upload(HttpServletRequest request) {
         try {
@@ -106,7 +106,7 @@ public class FileInfoController {
                     long size = file.getSize();
                     String contentType = file.getContentType();
                     String fileName = file.getOriginalFilename();
-                    String extension=fileName.substring(fileName.lastIndexOf("."),fileName.length());
+                    String extension=fileName.substring(fileName.lastIndexOf(BaseConstant.SPITS_STR4),fileName.length());
                     FileInfo info = new FileInfo();
                     info.setContentType(contentType);
                     info.setExtension(extension);

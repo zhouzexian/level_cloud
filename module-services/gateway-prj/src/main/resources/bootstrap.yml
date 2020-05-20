@@ -5,6 +5,7 @@ joey:
   #服务配置中心地址
   config-url: 127.0.0.1:8848
   sentinel-url: 127.0.0.1:8080
+  zipkin-url: http://127.0.0.1:9411
   swagger:
     enabled: true
 #slf4j日志默认级别
@@ -40,10 +41,18 @@ spring:
       charset: UTF-8
       force: true
       enabled: true
+  zipkin:
+    base-url: ${joey.zipkin-url}
 #路由配置
 zuul:
+  host:
+    connect-timeout-millis: 60000
+    socket-timeout-millis: 60000
   #解决token传递问题
   sensitive-headers: Cookie,Set-Cookie
+  ribbon-isolation-strategy: semaphore
+  semaphore:
+    max-semaphores: 100
   routes:
     api-psn:
       path: /api/psn/**
@@ -54,4 +63,7 @@ zuul:
     api-file:
       path: /api/file/**
       serviceId: file
+    api-cache:
+      path: /api/cache/**
+      serviceId: cache
 
