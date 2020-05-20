@@ -1,0 +1,43 @@
+#自定义属性
+joey:
+  port: 8861
+  name: elasticsearch
+  config-url: 127.0.0.1:8848
+  zipkin-url: http://127.0.0.1:9411
+  swagger:
+    enabled: true
+#slf4j日志默认级别
+logging:
+  level:
+    com:
+      joey:
+        cloud: error
+    root: error
+#基础服务配置
+server:
+  port: ${joey.port}
+  servlet:
+    context-path: /
+spring:
+  application:
+    name: ${joey.name}
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${joey.config-url}
+      config:
+        server-addr: ${joey.config-url}
+        file-extension: yaml
+  profiles:
+    active: dev
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+  zipkin:
+    base-url: ${joey.zipkin-url}
+  elasticsearch:
+    rest:
+      uris: http://127.0.0.1:9200
+

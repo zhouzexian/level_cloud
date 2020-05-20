@@ -16,6 +16,7 @@
         <module>file-service</module>
         <module>cache-service</module>
         <module>mail-service</module>
+        <module>elasticsearch-service</module>
     </modules>
 
 </project>

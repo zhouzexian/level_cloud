@@ -10,7 +10,7 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * <p>
@@ -56,7 +56,7 @@ public class Person implements Serializable {
 
     @ApiModelProperty(value = "创建时间")
     @TableField("createDate")
-    private LocalDateTime createDate;
+    private Date createDate;
 
 
 }
