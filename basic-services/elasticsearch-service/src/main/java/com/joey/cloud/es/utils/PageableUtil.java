@@ -1,7 +1,7 @@
 package com.joey.cloud.es.utils;
 
 import com.joey.cloud.common.core.constant.BaseConstant;
-import com.joey.cloud.common.core.dto.SearchEsForm;
+import com.joey.cloud.common.core.form.PageEsForm;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
@@ -12,7 +12,7 @@ import org.springframework.data.domain.Pageable;
  */
 public class PageableUtil {
 
-    public static Pageable getPageable(SearchEsForm form){
+    public static Pageable getPageable(PageEsForm form){
         if(form==null){
             return PageRequest.of(BaseConstant.INIT_PAGE_NO_ES,BaseConstant.INIT_PAGE_SIZE_ES);
         }

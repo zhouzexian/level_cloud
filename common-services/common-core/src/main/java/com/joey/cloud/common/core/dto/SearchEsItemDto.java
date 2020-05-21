@@ -7,11 +7,13 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
+ * [{"key":"","value":"","queryType":"must","matchType":""}]
+ * es检索封装
  * @author joey
  */
 @Data
 @ApiModel(value="搜索-es-item")
-public class SearchEsItem implements Serializable {
+public class SearchEsItemDto implements Serializable {
     private static final long serialVersionUID = 1L;
     @ApiModelProperty(value = "字段名")
     private String key;

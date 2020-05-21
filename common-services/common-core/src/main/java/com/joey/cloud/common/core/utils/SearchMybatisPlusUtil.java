@@ -4,7 +4,8 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.joey.cloud.common.core.dto.SearchForm;
+import com.joey.cloud.common.core.dto.SearchItemDto;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
@@ -21,9 +22,12 @@ public class SearchMybatisPlusUtil {
     public static QueryWrapper parseWhereSql(String searchJson){
         QueryWrapper queryWrapper = new QueryWrapper();
         if(StrUtil.isNotEmpty(searchJson)){
-            List<SearchForm> searchList = JSON.parseArray(searchJson,SearchForm.class);
+            List<SearchItemDto> searchList = JSON.parseArray(searchJson, SearchItemDto.class);
             if(CollUtil.isNotEmpty(searchList)){
-                for(SearchForm form : searchList){
+                for(SearchItemDto form : searchList){
+                    if(StringUtils.isBlank(form.getKey())){
+                        continue;
+                    }
                     if(StrUtil.isEmpty(form.getType())){
                         queryWrapper.eq(form.getKey(),form.getValue());
                     }else {
@@ -38,6 +42,7 @@ public class SearchMybatisPlusUtil {
                             case "lt": queryWrapper.lt(form.getKey(),form.getValue());break;
                             case "ge": queryWrapper.ge(form.getKey(),form.getValue());break;
                             case "le": queryWrapper.le(form.getKey(),form.getValue());break;
+                            default:
                         }
                     }
                 }

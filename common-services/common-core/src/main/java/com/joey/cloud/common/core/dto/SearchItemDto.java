@@ -7,12 +7,13 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * 基础搜索类
+ * [{"key":"","value":"","type":"eq"}]
+ * mybatis-plus搜索封装
  * @author joey
  */
 @Data
 @ApiModel(value="搜索-mybatis-form")
-public class SearchForm implements Serializable {
+public class SearchItemDto implements Serializable {
     private static final long serialVersionUID = 330682664276072546L;
     @ApiModelProperty(value = "数据库字段名")
     private String key;

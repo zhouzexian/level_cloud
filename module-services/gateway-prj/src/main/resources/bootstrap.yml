@@ -66,4 +66,10 @@ zuul:
     api-cache:
       path: /api/cache/**
       serviceId: cache
+    api-es:
+      path: /api/es/**
+      serviceId: elasticsearch
+
+
+
 
