@@ -16,6 +16,10 @@ public class BaseConstant {
     public static final long INIT_PAGE_NO=1;
     public static final long INIT_PAGE_SIZE=10;
 
+    public static final int MAX_PAGE_SIZE_ES=999;
+    public static final int INIT_PAGE_NO_ES=0;
+    public static final int INIT_PAGE_SIZE_ES=10;
+
     public static final String HEADER_TOKEN="Authorization";
     public static final String TOKEN_BEARER="Bearer";
 

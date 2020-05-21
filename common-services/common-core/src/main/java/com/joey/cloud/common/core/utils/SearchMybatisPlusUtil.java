@@ -9,10 +9,10 @@ import com.joey.cloud.common.core.dto.SearchForm;
 import java.util.List;
 
 /**
- * 搜索工具类
+ * Mybatis搜索工具类
  * @author joey
  */
-public class SearchUtil {
+public class SearchMybatisPlusUtil {
     /**
      * 构造QueryWrapper
      * @param searchJson

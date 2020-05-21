@@ -8,7 +8,7 @@ import com.joey.cloud.common.core.form.PageForm;
 import com.joey.cloud.common.core.utils.DirUtil;
 import com.joey.cloud.common.core.utils.PageUtil;
 import com.joey.cloud.common.core.utils.ResponseUtil;
-import com.joey.cloud.common.core.utils.SearchUtil;
+import com.joey.cloud.common.core.utils.SearchMybatisPlusUtil;
 import com.joey.cloud.common.core.vo.PageVo;
 import com.joey.cloud.common.core.vo.ResponseVo;
 import com.joey.cloud.file.entity.FileInfo;
@@ -54,7 +54,7 @@ public class FileInfoController {
     @ApiImplicitParam(name="searchJson",value="检索json",dataType = "string", paramType = "query",required = false)
     public ResponseVo<PageVo<FileInfo>> pageList(PageForm form, String searchJson){
         try {
-            QueryWrapper qw = SearchUtil.parseWhereSql(searchJson);
+            QueryWrapper qw = SearchMybatisPlusUtil.parseWhereSql(searchJson);
             Page<FileInfo> page = fileInfoServiceImpl.page(PageUtil.getPage(form),qw);
             return ResponseVo.success(PageVo.create(page.getPages(),page.getTotal(),page.getRecords()));
         }catch (Exception e){

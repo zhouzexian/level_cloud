@@ -29,6 +29,13 @@ public class PageVo<T> implements Serializable {
         vo.setTotal(total);
         return vo;
     }
+    public static PageVo create(Integer pages, Long total,List list){
+        PageVo vo = new PageVo();
+        vo.setList(list);
+        vo.setPages(pages.longValue());
+        vo.setTotal(total);
+        return vo;
+    }
 
 
 }
