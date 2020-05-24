@@ -1,0 +1,46 @@
+#自定义属性
+joey:
+  port: 8901
+  name: stream_mq_provider
+  config-url: 127.0.0.1:8848
+  zipkin-url: http://127.0.0.1:9411
+  swagger:
+    enabled: true
+#slf4j日志默认级别
+logging:
+  level:
+    com:
+      joey:
+        cloud: error
+    root: error
+#基础服务配置
+server:
+  port: ${joey.port}
+  servlet:
+    context-path: /
+spring:
+  application:
+    name: ${joey.name}
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${joey.config-url}
+      config:
+        server-addr: ${joey.config-url}
+        file-extension: yaml
+  profiles:
+    active: dev
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+  zipkin:
+    base-url: ${joey.zipkin-url}
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+

@@ -50,7 +50,7 @@ public class FileInfoController {
     String baseFilePath;
 
     @ApiOperation(value = "获取列表-带分页")
-    @GetMapping("/pageList")
+    @GetMapping("/page")
     @ApiImplicitParam(name="searchJson",value="检索json",dataType = "string", paramType = "query",required = false)
     public ResponseVo<PageVo<FileInfo>> pageList(PageForm form, String searchJson){
         try {

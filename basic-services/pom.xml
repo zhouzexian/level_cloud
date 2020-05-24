@@ -17,6 +17,10 @@
         <module>cache-service</module>
         <module>mail-service</module>
         <module>elasticsearch-service</module>
+        <module>rabbitmq-provider</module>
+        <module>rabbitmq-consumer</module>
+        <module>stream-rabbitmq-provider</module>
+        <module>stream-rabbitmq-consumer</module>
     </modules>
 
 </project>
