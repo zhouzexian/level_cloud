@@ -52,7 +52,7 @@ public class FileInfoController {
     @ApiOperation(value = "获取列表-带分页")
     @GetMapping("/page")
     @ApiImplicitParam(name="searchJson",value="检索json",dataType = "string", paramType = "query",required = false)
-    public ResponseVo<PageVo<FileInfo>> pageList(PageForm form, String searchJson){
+    public ResponseVo<PageVo<FileInfo>> page(PageForm form, String searchJson){
         try {
             QueryWrapper qw = SearchMybatisPlusUtil.parseWhereSql(searchJson);
             Page<FileInfo> page = fileInfoServiceImpl.page(PageUtil.getPage(form),qw);
@@ -68,7 +68,7 @@ public class FileInfoController {
     @ApiImplicitParam(name = "fileId",value = "文件id",dataType = "long",paramType = "path", required = true)
     public void download(@PathVariable("fileId")Long fileId,
                          HttpServletRequest request,
-                         HttpServletResponse response) throws Exception {
+                         HttpServletResponse response) {
         try {
             FileInfo fileInfo = fileInfoServiceImpl.getById(fileId);
             if(fileInfo!=null){

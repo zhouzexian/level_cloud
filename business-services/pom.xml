@@ -11,6 +11,9 @@
     <artifactId>business-services</artifactId>
     <packaging>pom</packaging>
     <description>业务服务集</description>
+    <modules>
+        <module>flowable-service</module>
+    </modules>
 
 
 </project>

@@ -15,5 +15,6 @@
     <modules>
         <module>gateway-prj</module>
         <module>uaa-prj</module>
+        <module>zipkin-prj</module>
     </modules>
 </project>
