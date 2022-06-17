@@ -22,7 +22,7 @@
     <spring-boot-dependencies.version>2.2.5.RELEASE</spring-boot-dependencies.version>
     <spring-cloud-dependencies.version>Hoxton.SR3</spring-cloud-dependencies.version>
     <spring-cloud-alibaba-dependencies.version>2.2.0.RELEASE</spring-cloud-alibaba-dependencies.version>
-    <fastjson.version>1.2.62</fastjson.version>
+    <fastjson.version>1.2.83</fastjson.version>
     <hutool-all.version>5.3.1</hutool-all.version>
     <druid-starter>1.1.21</druid-starter>
     <mybatis-plus-boot-starter.version>3.3.1</mybatis-plus-boot-starter.version>
